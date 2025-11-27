@@ -1,3 +1,4 @@
+import Animate from "./Animate";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Zap, Shield, Target } from "lucide-react";
 
@@ -35,17 +36,19 @@ export default function WhyChooseUs({ data }: WhyChooseUsProps) {
           {data.cards.map((card, index) => {
             const Icon = iconMap[card.icon as keyof typeof iconMap];
             return (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <Icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{card.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{card.description}</p>
-                </CardContent>
-              </Card>
+              <Animate delay={index / 2} key={index}>
+                <Card className="text-center hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
+                      <Icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">{card.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{card.description}</p>
+                  </CardContent>
+                </Card>
+              </Animate>
             );
           })}
         </div>

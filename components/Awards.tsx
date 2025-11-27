@@ -26,7 +26,7 @@ export default function Awards({ data }: AwardsProps) {
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <div className="mx-auto mb-4 p-3 bg-accent/10 rounded-full w-fit">
-                  <Trophy className="h-6 w-6 text-accent-foreground" />
+                  <Trophy className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="font-semibold mb-1">{award.name}</h3>
                 <p className="text-sm text-muted-foreground mb-1">{award.issuer}</p>

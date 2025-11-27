@@ -1,36 +1,95 @@
 export const data = {
-  theme: {
-    primary: "#1a365d", // Dark blue
-    accent: "#3182ce", // Blue
-    background: "#ffffff", // White
-    text: "#2d3748", // Dark gray
+  // theme: {
+  //   primary: "#1a365d", // Dark blue
+  //   accent: "#3182ce", // Blue
+  //   background: "#ffffff", // White
+  //   text: "#2d3748", // Dark gray
+  // },
+  header: {
+    logo: {
+      image: "/headers/logo.png",
+      link: "/",
+    },
+    nav: [
+      {
+        text: "About us",
+        children: [
+          {
+            text: "Who we are",
+            link: "/about-us#who-we-are",
+          },
+          {
+            text: "Our Teams",
+            link: "/about-us#our-teams",
+          },
+          {
+            text: "awards",
+            link: "/about-us#awards",
+          },
+        ],
+      },
+      {
+        text: "Products & Services",
+        link: "/products-services",
+      },
+      {
+        text: "Partners",
+        link: "/partners",
+      },
+      {
+        text: "Clients",
+        link: "/clients",
+      },
+      {
+        text: "Media",
+        children: [
+          {
+            text: "News",
+            link: "/media-news",
+          },
+          {
+            text: "Blogs",
+            link: "/media-blogs",
+          },
+        ],
+      },
+    ],
+    cta: {
+      text: "Contact Us",
+      link: "#contact",
+    },
   },
   hero: {
-    headline: "Empowering Your Business with Cutting-Edge Technology Solutions",
-    subtext: "Sparkline delivers innovative IT services that drive growth, security, and efficiency for modern enterprises.",
+    headline: "Empowering Your Business with Technology Solutions",
+    subtext:
+      "Sparkline delivers innovative IT services that drive growth, security, and efficiency for modern enterprises.",
     cta: {
       text: "Get Started Today",
       link: "#contact",
     },
-    illustration: "/hero-illustration.svg", // Placeholder
+    illustration: "/about-team.jpg", // Placeholder
   },
   whyChooseUs: {
     title: "Why Choose Sparkline?",
-    subtitle: "We provide comprehensive technology solutions tailored to your business needs.",
+    subtitle:
+      "We provide comprehensive technology solutions tailored to your business needs.",
     cards: [
       {
         title: "Expertise & Innovation",
-        description: "Our team of certified professionals brings years of experience and stays ahead of the latest technology trends.",
+        description:
+          "Our team of certified professionals brings years of experience and stays ahead of the latest technology trends.",
         icon: "Zap",
       },
       {
         title: "Reliable Support",
-        description: "24/7 technical support ensures your systems run smoothly with minimal downtime.",
+        description:
+          "24/7 technical support ensures your systems run smoothly with minimal downtime.",
         icon: "Shield",
       },
       {
         title: "Customized Solutions",
-        description: "We design solutions that fit your unique business requirements and scale with your growth.",
+        description:
+          "We design solutions that fit your unique business requirements and scale with your growth.",
         icon: "Target",
       },
     ],
@@ -58,7 +117,8 @@ export const data = {
   },
   about: {
     title: "About Sparkline",
-    description: "Founded in 2015, Sparkline has been at the forefront of technological innovation, helping businesses transform their operations through cutting-edge IT solutions. Our mission is to empower organizations with reliable, secure, and efficient technology infrastructure.",
+    description:
+      "Founded in 2015, Sparkline has been at the forefront of technological innovation, helping businesses transform their operations through cutting-edge IT solutions. Our mission is to empower organizations with reliable, secure, and efficient technology infrastructure.",
     image: "/about-team.jpg", // Placeholder
   },
   services: {
@@ -134,7 +194,8 @@ export const data = {
   },
   cta: {
     title: "Have an IT Solution Need?",
-    subtitle: "Let's discuss how we can help transform your business with our expert technology solutions.",
+    subtitle:
+      "Let's discuss how we can help transform your business with our expert technology solutions.",
     button: {
       text: "Contact Us",
       link: "#contact",
@@ -167,12 +228,14 @@ export const data = {
   },
   newsletter: {
     title: "Stay Updated",
-    subtitle: "Subscribe to our newsletter for the latest technology insights and company updates.",
+    subtitle:
+      "Subscribe to our newsletter for the latest technology insights and company updates.",
     placeholder: "Enter your email address",
     button: "Subscribe",
   },
   footer: {
-    description: "Empowering businesses with innovative technology solutions since 2015.",
+    description:
+      "Empowering businesses with innovative technology solutions since 2015.",
     links: {
       services: [
         { text: "Managed Services", link: "#services" },
@@ -191,9 +254,21 @@ export const data = {
       ],
     },
     social: [
-      { name: "LinkedIn", link: "https://linkedin.com/company/sparkline", icon: "Linkedin" },
-      { name: "Twitter", link: "https://twitter.com/sparkline", icon: "Twitter" },
-      { name: "Facebook", link: "https://facebook.com/sparkline", icon: "Facebook" },
+      {
+        name: "LinkedIn",
+        link: "https://linkedin.com/company/sparkline",
+        icon: "Linkedin",
+      },
+      {
+        name: "Twitter",
+        link: "https://twitter.com/sparkline",
+        icon: "Twitter",
+      },
+      {
+        name: "Facebook",
+        link: "https://facebook.com/sparkline",
+        icon: "Facebook",
+      },
     ],
     copyright: "© 2024 Sparkline. All rights reserved.",
   },

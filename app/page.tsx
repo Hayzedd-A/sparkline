@@ -9,10 +9,12 @@ import CTA from "../components/CTA";
 import Awards from "../components/Awards";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main>
+      <Header data={data.header} />
       <Hero data={data.hero} />
       <WhyChooseUs data={data.whyChooseUs} />
       <Stats data={data.stats} />

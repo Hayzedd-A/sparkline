@@ -1,57 +1,270 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
+@theme {
+  /* Custom Colors */
+  --color-theme: #2b3a55;
+  --color-faint-bg: #2b3a55b8;
+  --color-primary: rgb(44, 187, 198);
+  --color-primary-foreground: rgb(255, 255, 255);
+  --color-accent: rgb(215, 41, 54);
+  --color-accent-foreground: rgb(255, 255, 255);
+  
+  /* Container */
+  --container-center: true;
+  --container-padding: 2rem;
+  --container-2xl: 1400px;
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* Keyframes */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
   }
 }
 
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Base Styles */
 @layer base {
-  * {
+  body {
+    font-family: "Futura PT", sans-serif;
+  }
+}
+
+/* Utility Classes */
+@layer components {
+  /* Your Custom Classes */
+  .btn-theme {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium text-white bg-theme hover:opacity-90 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply border border-gray-200 rounded-lg shadow-sm bg-white;
+  }
+
+  .input {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-theme focus:border-theme;
+  }
+
+  .label {
+    @apply text-sm font-medium text-gray-700;
+  }
+
+  .container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+
+  /* shadcn/ui Utility Classes */
+  .bg-background {
+    @apply bg-white;
+  }
+
+  .text-foreground {
+    @apply text-gray-900;
+  }
+
+  .bg-card {
+    @apply bg-white;
+  }
+
+  .text-card-foreground {
+    @apply text-gray-900;
+  }
+
+  .bg-popover {
+    @apply bg-white;
+  }
+
+  .text-popover-foreground {
+    @apply text-gray-900;
+  }
+
+.bg-primary {
+  @apply bg-gradient-to-br from-[rgb(44,187,198)] to-[rgb(54,122,255)];
+}
+
+  .text-primary {
+    @apply text-[rgb(44,187,198)];
+  }
+
+  .text-primary-foreground {
+    @apply text-white;
+  }
+
+  .bg-secondary {
+    @apply bg-gray-100;
+  }
+
+  .text-secondary {
+    @apply text-gray-900;
+  }
+
+  .text-secondary-foreground {
+    @apply text-gray-900;
+  }
+
+  .bg-muted {
+    @apply bg-gray-100;
+  }
+
+  .text-muted {
+    @apply text-gray-100;
+  }
+
+  .text-muted-foreground {
+    @apply text-gray-500;
+  }
+
+  .bg-accent {
+    @apply bg-[rgb(215,41,54)];
+  }
+
+  .text-accent {
+    @apply text-[rgb(215,41,54)];
+  }
+
+  .text-accent-foreground {
+    @apply text-white;
+  }
+
+  .bg-destructive {
+    @apply bg-red-500;
+  }
+
+  .text-destructive {
+    @apply text-red-500;
+  }
+
+  .text-destructive-foreground {
+    @apply text-gray-50;
+  }
+
+  .border-border {
     @apply border-gray-200;
   }
-  body {
-    @apply bg-white text-gray-900;
+
+  .border-input {
+    @apply border-gray-200;
+  }
+
+  .ring-ring {
+    @apply ring-gray-900;
+  }
+
+  /* Dark Mode Classes */
+  .dark .bg-background {
+    @apply bg-gray-900;
+  }
+
+  .dark .text-foreground {
+    @apply text-gray-50;
+  }
+
+  .dark .bg-card {
+    @apply bg-gray-900;
+  }
+
+  .dark .text-card-foreground {
+    @apply text-gray-50;
+  }
+
+  .dark .bg-popover {
+    @apply bg-gray-900;
+  }
+
+  .dark .text-popover-foreground {
+    @apply text-gray-50;
+  }
+
+  .dark .bg-primary {
+    @apply bg-[rgb(44,187,198)];
+  }
+
+  .dark .text-primary {
+    @apply text-[rgb(44,187,198)];
+  }
+
+  .dark .text-primary-foreground {
+    @apply text-white;
+  }
+
+  .dark .bg-secondary {
+    @apply bg-gray-800;
+  }
+
+  .dark .text-secondary {
+    @apply text-gray-50;
+  }
+
+  .dark .text-secondary-foreground {
+    @apply text-gray-50;
+  }
+
+  .dark .bg-muted {
+    @apply bg-gray-800;
+  }
+
+  .dark .text-muted {
+    @apply text-gray-800;
+  }
+
+  .dark .text-muted-foreground {
+    @apply text-gray-400;
+  }
+
+  .dark .bg-accent {
+    @apply bg-[rgb(215,41,54)];
+  }
+
+  .dark .text-accent {
+    @apply text-[rgb(215,41,54)];
+  }
+
+  .dark .text-accent-foreground {
+    @apply text-white;
+  }
+
+  .dark .bg-destructive {
+    @apply bg-red-900;
+  }
+
+  .dark .text-destructive {
+    @apply text-red-900;
+  }
+
+  .dark .text-destructive-foreground {
+    @apply text-gray-50;
+  }
+
+  .dark .border-border {
+    @apply border-gray-800;
+  }
+
+  .dark .border-input {
+    @apply border-gray-800;
+  }
+
+  .dark .ring-ring {
+    @apply ring-gray-300;
   }
 }
