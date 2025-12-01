@@ -67,7 +67,7 @@ export const data = {
       text: "Get Started Today",
       link: "#contact",
     },
-    illustration: "/about-team.jpg", // Placeholder
+    illustration: ["/heros/hero1.jpg", "/heros/hero2.jpg", "/heros/hero3.jpg"],
   },
   whyChooseUs: {
     title: "Why Choose Sparkline?",
