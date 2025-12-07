@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { ChevronDown, CheckCircle2 } from "lucide-react";
 
@@ -94,8 +95,16 @@ export default function ServicesDetailed({ data }: ServicesDetailedProps) {
               </CardHeader>
 
               {/* Expanded Content */}
-              {expandedService === category.id && (
-                <CardContent className="pt-6">
+              <AnimatePresence initial={false}>
+                {expandedService === category.id && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <CardContent className="pt-6">
                   {/* Features Grid */}
                   <div className="mb-8">
                     <h3 className="text-xl font-semibold mb-4">
@@ -177,8 +186,10 @@ export default function ServicesDetailed({ data }: ServicesDetailedProps) {
                       ))}
                     </div>
                   </div>
-                </CardContent>
-              )}
+                    </CardContent>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </Card>
           ))}
         </div>

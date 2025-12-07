@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Quote } from "lucide-react";
 import { Badge } from "../ui/badge";
@@ -78,10 +79,25 @@ export default function Portfolio({ data }: PortfolioProps) {
         {/* Portfolio Grid */}
         <div className="space-y-16">
           {filteredProjects.map((project, index) => (
-            <Card
+            <motion.div
               key={project.id}
-              className="overflow-hidden hover:shadow-2xl transition-shadow"
+              initial={{
+                opacity: 0,
+                x: index % 2 === 0 ? -100 : 100,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
+              <Card
+                className="overflow-hidden hover:shadow-2xl transition-shadow"
+              >
               <div
                 className={`grid lg:grid-cols-2 gap-8 ${
                   index % 2 === 0 ? "" : "lg:flex-row-reverse"
@@ -193,6 +209,7 @@ export default function Portfolio({ data }: PortfolioProps) {
                 </div>
               </div>
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>
